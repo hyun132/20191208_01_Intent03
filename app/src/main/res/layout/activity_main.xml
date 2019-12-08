@@ -22,6 +22,20 @@
         android:layout_height="wrap_content"
         android:text="다른 화면에서 입력 받아오기"/>
 
+    <TextView
+        android:id="@+id/nicknameTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="닉네임 입력값 자리"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/inputNickNameBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다른 화면에서 닉네임 받아오기"/>
+
 
 
 </LinearLayout>

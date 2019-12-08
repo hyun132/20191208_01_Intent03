@@ -10,19 +10,26 @@ class MainActivity : AppCompatActivity() {
 //    1000이라는 숫자만 보면 어떤 의미로 쓰는지 알기 어렵다.
 //    상수로 이름을 지어줘서 읽기 편하게 가공.
     val REQ_CODE_FOR_INPUT_NAME = 1000
+    val REQ_CODE_FOR_INPUT_NICKNAME =1001
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         inputNameBtn.setOnClickListener {
-            val intent = Intent(this,EditNameActivity::class.java)
+            val intent = Intent(this, EditNameActivity::class.java)
 //            startActivity(intent) => 단순히 화면 이동을 위한 호출
 
 //          결과를 받아오기 위한 요청(Request)를  하면서 화면 이동.
 //            어떤? 요청인지 구별해주는 숫자값 적어줘야함.
-            startActivityForResult(intent,REQ_CODE_FOR_INPUT_NAME)
+            startActivityForResult(intent, REQ_CODE_FOR_INPUT_NAME)
 
+        }
+
+        inputNickNameBtn.setOnClickListener {
+            val intent = Intent(this, EditNickNameActivity::class.java)
+
+            startActivityForResult(intent, REQ_CODE_FOR_INPUT_NICKNAME)
         }
 
     }
@@ -39,6 +46,20 @@ class MainActivity : AppCompatActivity() {
                     val inputName = data.getStringExtra("name")
 
                     nameTxt.text=inputName
+
+                }
+
+            }
+        }
+        if (requestCode == REQ_CODE_FOR_INPUT_NICKNAME){
+//            확인버튼을 누른게 맞는지 확인
+            if(resultCode == Activity.RESULT_OK){
+
+//                결과를 담아둔 intent가 실재할 때만 실행됨.
+                if(data != null){
+                    val inputName = data.getStringExtra("nickname")
+
+                    nicknameTxt.text=inputName
 
                 }
 
